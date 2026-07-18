@@ -1,0 +1,156 @@
+[gd_scene format=3 uid="uid://bawkhqch137f5"]
+
+[ext_resource type="FontFile" uid="uid://c6diq2yk6rldu" path="res://assets/PressStart2P-Regular.ttf" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://qyrepd2qhwan" path="res://scripts/play.gd" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://d2w4o4sdkdm00" path="res://assets/images/alien_a.png" id="3_mhnvy"]
+[ext_resource type="Script" uid="uid://5auuluhoswpk" path="res://scripts/animate_alien.gd" id="4_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://bq6dinoc3pmms" path="res://assets/space.png" id="4_mhnvy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4h3mk"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeox"]
+bg_color = Color(0.11764706, 0.007843138, 0.5019608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+bg_color = Color(0.11764706, 0.007843138, 0.5019608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_con2f"]
+bg_color = Color(0.3019608, 0, 0.84313726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Menu" type="CanvasLayer" unique_id=2135239338]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1835557449]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_mhnvy")
+expand_mode = 1
+
+[node name="Space" type="Panel" parent="." unique_id=1119922818]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4h3mk")
+
+[node name="Title" type="Label" parent="Space" unique_id=2119999980]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 40
+text = "CONQUER THE SPACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Developer" type="Label" parent="Space" unique_id=1102388349]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.5
+offset_top = -43.5
+offset_right = 180.5
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_yqeox")
+text = "Made By AGENTRAYM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="Space" unique_id=331643861]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -54.5
+offset_right = 116.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_yqeox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vjb58")
+theme_override_styles/hover = SubResource("StyleBoxFlat_con2f")
+text = "PLAY"
+script = ExtResource("2_con2f")
+
+[node name="Instruction" type="Label" parent="Space" unique_id=1378739307]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -328.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = 20
+theme_override_fonts/font = ExtResource("1_yqeox")
+theme_override_font_sizes/font_size = 24
+text = "Use your mouse's left click to kill aliens while aiming at them. Kill as many aliens as you can before the timer runs out. Bring it on!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LeftAlien" type="TextureRect" parent="Space" unique_id=988131482]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.3
+anchor_right = 0.8
+anchor_bottom = 0.4
+offset_right = 420.0
+offset_bottom = 518.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_mhnvy")
+script = ExtResource("4_4ytvr")
+
+[node name="RightAlien" type="TextureRect" parent="Space" unique_id=717636078]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.3
+anchor_right = 0.2
+anchor_bottom = 0.3
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_mhnvy")
+flip_h = true
+script = ExtResource("4_4ytvr")
+
+[connection signal="pressed" from="Space/Play" to="Space/Play" method="_on_pressed"]

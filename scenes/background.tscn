@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bw6bs25gkufwe"]
+
+[ext_resource type="Script" uid="uid://tyjgqkj3jt6t" path="res://scripts/background.gd" id="1_bkp1e"]
+[ext_resource type="Texture2D" uid="uid://bq6dinoc3pmms" path="res://assets/space.png" id="2_y0upk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5a4c"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Background" type="Node" unique_id=1939041293]
+script = ExtResource("1_bkp1e")
+
+[node name="Space" type="Panel" parent="." unique_id=821872763]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o5a4c")
+
+[node name="Background" type="TextureRect" parent="." unique_id=106292786]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_y0upk")
+expand_mode = 1

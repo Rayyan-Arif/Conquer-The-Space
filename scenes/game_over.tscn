@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://dg1p113rtpfpc"]
+
+[ext_resource type="FontFile" uid="uid://c6diq2yk6rldu" path="res://assets/PressStart2P-Regular.ttf" id="1_xeevv"]
+[ext_resource type="Script" uid="uid://crhsdjy7eo8if" path="res://scripts/game_over_score.gd" id="3_7m3ot"]
+[ext_resource type="Script" uid="uid://qyrepd2qhwan" path="res://scripts/play.gd" id="3_tbwuq"]
+[ext_resource type="Script" uid="uid://b13137j7o6wpe" path="res://scripts/back_to_home.gd" id="4_racf3"]
+[ext_resource type="Texture2D" uid="uid://d2w4o4sdkdm00" path="res://assets/images/alien_a.png" id="5_irg28"]
+[ext_resource type="Script" uid="uid://5auuluhoswpk" path="res://scripts/animate_alien.gd" id="6_2jtsn"]
+[ext_resource type="Texture2D" uid="uid://bq6dinoc3pmms" path="res://assets/space.png" id="6_v3hpu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0nqlu"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_racf3"]
+bg_color = Color(0.11764706, 0.007843138, 0.5019608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m3ot"]
+bg_color = Color(0.11764706, 0.007843138, 0.5019608, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3hpu"]
+bg_color = Color(0.3019608, 0, 0.84313726, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="GameOver" type="CanvasLayer" unique_id=123012966]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1463595767]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_v3hpu")
+expand_mode = 1
+
+[node name="Space" type="Panel" parent="." unique_id=1700034356]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0nqlu")
+
+[node name="Title" type="Label" parent="Space" unique_id=1195885826]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 297.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 40
+text = "TIME'S UP!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="Space" unique_id=687909467]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.294
+anchor_right = 0.5
+anchor_bottom = 0.581
+offset_left = -640.0
+offset_top = -83.5
+offset_right = 640.0
+offset_bottom = 13.680023
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 32
+text = "Your Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_7m3ot")
+
+[node name="PlayAgain" type="Button" parent="Space" unique_id=699149478]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.537
+anchor_right = 0.5
+anchor_bottom = 0.537
+offset_left = -199.0
+offset_top = -54.5
+offset_right = 199.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_racf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7m3ot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v3hpu")
+text = "PLAY AGAIN"
+script = ExtResource("3_tbwuq")
+
+[node name="BackToHome" type="Button" parent="Space" unique_id=1929997231]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -199.0
+offset_top = -54.5
+offset_right = 199.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_racf3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7m3ot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v3hpu")
+text = "BACK TO HOME"
+script = ExtResource("4_racf3")
+
+[node name="LeftAlien" type="TextureRect" parent="Space" unique_id=728846805]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.3
+anchor_right = 0.8
+anchor_bottom = 0.4
+offset_right = 420.0
+offset_bottom = 518.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_irg28")
+script = ExtResource("6_2jtsn")
+
+[node name="RightAlien" type="TextureRect" parent="Space" unique_id=1074984254]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.3
+anchor_right = 0.2
+anchor_bottom = 0.3
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_irg28")
+flip_h = true
+script = ExtResource("6_2jtsn")
+
+[connection signal="pressed" from="Space/PlayAgain" to="Space/PlayAgain" method="_on_pressed"]
+[connection signal="button_down" from="Space/BackToHome" to="Space/BackToHome" method="_on_button_down"]

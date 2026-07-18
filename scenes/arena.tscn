@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://d4lvo2tkq6kmu"]
+
+[ext_resource type="PackedScene" uid="uid://bw6bs25gkufwe" path="res://scenes/background.tscn" id="1_e05a3"]
+[ext_resource type="FontFile" uid="uid://c6diq2yk6rldu" path="res://assets/PressStart2P-Regular.ttf" id="2_wl4x5"]
+[ext_resource type="AudioStream" uid="uid://deqaj8esksw4f" path="res://assets/audios/shoot.wav" id="3_olpmc"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_olpmc"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.965, 1, 1)
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 98, 0)
+color = Color(1, 0, 0.1764706, 1)
+
+[node name="Arena" type="Node" unique_id=937309663]
+
+[node name="Background" parent="." unique_id=1939041293 instance=ExtResource("1_e05a3")]
+
+[node name="Score" type="Label" parent="." unique_id=1897623422]
+offset_left = 47.0
+offset_top = 32.0
+offset_right = 239.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("2_wl4x5")
+theme_override_font_sizes/font_size = 24
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="." unique_id=473584]
+anchors_preset = -1
+anchor_left = 0.969
+anchor_top = 0.056
+anchor_right = 0.969
+anchor_bottom = 0.056
+offset_left = -192.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("2_wl4x5")
+theme_override_font_sizes/font_size = 24
+text = "Time: 60"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=1647139831]
+stream = ExtResource("3_olpmc")
+
+[node name="Particles" type="GPUParticles2D" parent="." unique_id=2116220859]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_olpmc")
